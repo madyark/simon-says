@@ -1,0 +1,56 @@
+/* General attributes */
+
+* {
+    font-family: sans-serif;
+}
+
+.simon-header {
+    font-weight: 800;
+    text-align: center;
+    color: #000000;
+}
+
+/* Specific attributes */
+
+.simon-load, .simon-game { /* Stacking the two sections side by side horizontally */
+    display: block;
+    width: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.simon-load h1 {
+
+}
+
+.simon-display {
+    background-color: #000000;
+    border-radius: 5px;
+    margin-top: 30px;
+    width: 80%; /* 80% of the parent width */
+}
+
+.simon-display .row {
+    height: 100px;
+}
+
+.simon-display .col-4 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.display-btn {
+    width: 100%;
+    height: 100px;
+    background-color: #000000;
+    border: none;
+    border-radius: 5px;
+}
+
+.display-btn:active {
+    background-color: #00008B;
+}
+
+/* Media queries */
