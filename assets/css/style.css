@@ -8,12 +8,14 @@
     font-weight: 800;
     text-align: center;
     color: #000000;
+    font-size: 40px;
 }
 
 /* Specific attributes */
 
 .simon-load, .simon-game { /* Stacking the two sections side by side horizontally */
     display: block;
+    float: left;
     width: 50%;
     margin-left: 10px;
     margin-right: 10px;
@@ -27,6 +29,7 @@
 
 .simon-display {
     background-color: #000000;
+    border: 5px solid #B32400;
     border-radius: 5px;
     margin-top: 30px;
     width: 80%; /* 80% of the parent width */
@@ -44,13 +47,14 @@
 .display-btn {
     width: 100%;
     height: 100px;
-    background-color: #000000;
+    background-color: inherit;
     border: none;
     border-radius: 5px;
 }
 
-.display-btn:active {
+.display-btn-highlight {
     background-color: #00008B;
+    border: none;
 }
 
 /* Media queries */
