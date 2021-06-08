@@ -3,7 +3,18 @@ let shownButtons = [];
 
 // Selecting DOM attributes
 let displayButtons = document.getElementsByClassName("display-btn");
+let userButtons = document.getElementsByClassName("user-btn");
+console.log(userButtons);
 let gameInitializer = document.getElementById("init-game");
+
+// Removing the disable property from user or display buttons (based on the arguement)
+let removeButtonDisable = buttonClass => {
+    for (let i = 0; i < 9; i++) { // For each button selected with that specific class
+        userButtons[i].disabled = false;
+    }
+}
+
+// Add user instructions when hovering over the button containers
 
 // Random number selector
 let selectRandomNumber = (min, max) => {
@@ -41,8 +52,8 @@ let initDisplay = () => {
 }
 
 gameInitializer.addEventListener("click", function() {
-    shownButtons = []; // Clears the array after all the buttons have been shown
+    removeButtonDisable(userButtons); // Enabling the user buttons
+    shownButtons = []; // Ensures that the array is clear
     initDisplay(); // Displays the buttons based on "Start game" selection
-    shownButtons = []; 
 });
 
