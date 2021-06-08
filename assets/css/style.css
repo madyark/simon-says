@@ -4,6 +4,12 @@
     font-family: sans-serif;
 }
 
+header {
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .simon-header {
     font-weight: 800;
     text-align: center;
@@ -13,43 +19,58 @@
 
 /* Specific attributes */
 
-.simon-load, .simon-game { /* Stacking the two sections side by side horizontally */
+#simon-load { /* Stacking the two sections side by side horizontally */
     display: block;
-    float: left;
-    width: 50%;
-    margin-left: 10px;
-    margin-right: 10px;
+    max-width: 100%;
     box-sizing: border-box;
     margin-top: 50px;
+    overflow-x: hidden; /* Makes sure that the section does not overflow horizontally */
 }
 
-.simon-load h1 {
-
+#simon-load .col-6 {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.simon-display {
-    background-color: #000000;
-    border: 5px solid #B32400;
+.simon-display .container, .simon-user .container {
     border-radius: 5px;
-    margin-top: 30px;
     width: 80%; /* 80% of the parent width */
 }
 
-.simon-display .row {
+.simon-display .container {
+    background-color: #000000;
+    border: 5px solid #B32400;
+}
+
+.simon-user .container {
+    background-color: #D0D0D0;
+    border: 5px solid #202020;
+}
+
+.simon-display .row, .simon-user .row {
     height: 100px;
 }
 
-.simon-display .col-4 {
+.simon-display .col-4, .simon-user .col-4 {
     padding-right: 0px;
     padding-left: 0px;
 }
 
-.display-btn {
+.display-btn, .user-btn {
     width: 100%;
     height: 100px;
-    background-color: inherit;
-    border: none;
     border-radius: 5px;
+    background-color: inherit;
+}
+
+.display-btn {
+    border: none;
+}
+
+.user-btn {
+    border: 1px solid #B32400;
 }
 
 .display-btn-highlight {

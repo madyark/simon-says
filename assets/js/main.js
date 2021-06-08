@@ -3,6 +3,7 @@ let shownButtons = [];
 
 // Selecting DOM attributes
 let displayButtons = document.getElementsByClassName("display-btn");
+let gameInitializer = document.getElementById("init-game");
 
 // Random number selector
 let selectRandomNumber = (min, max) => {
@@ -39,5 +40,9 @@ let initDisplay = () => {
     }, 2000);
 }
 
-initDisplay();
-console.log(shownButtons);
+gameInitializer.addEventListener("click", function() {
+    shownButtons = []; // Clears the array after all the buttons have been shown
+    initDisplay(); // Displays the buttons based on "Start game" selection
+    shownButtons = []; 
+});
+

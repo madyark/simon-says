@@ -1,69 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap link below -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- CSS link below -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>Simon Says</title>
 </head>
-<body>
-    <section class="simon-load">
-        <h1 class="simon-header">Simon Says</h1>
-        <p>
-            How to play:
-        </p>
 
-        <!-- Computer display -->
-        <div class="container simon-display">
-            <div class="row align-items-center">
-                <div class="col-4" id="d-btn-1">
-                    <button class="display-btn" disabled></button>
+<body>
+    <header>
+        <h1 class="simon-header">Simon Says</h1>
+        <article>
+            <h5>
+                How to play:
+            </h5>
+        </article>
+    </header>
+
+    <section id="simon-load">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <!-- Computer display -->
+                    <section class="simon-display">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-4" id="d-btn-1">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                                <div class="col-4" id="d-btn-2">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                                <div class="col-4" id="d-btn-3">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-4" id="d-btn-4">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                                <div class="col-4" id="d-btn-5">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                                <div class="col-4" id="d-btn-6">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-4" id="d-btn-7">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                                <div class="col-4" id="d-btn-8">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                                <div class="col-4" id="d-btn-9">
+                                    <button class="display-btn" disabled></button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="col-4" id="d-btn-2">
-                    <button class="display-btn" disabled></button>
-                </div>
-                <div class="col-4" id="d-btn-3">
-                    <button class="display-btn" disabled></button>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-4" id="d-btn-4">
-                    <button class="display-btn" disabled></button>
-                </div>
-                <div class="col-4" id="d-btn-5">
-                    <button class="display-btn" disabled></button>
-                </div>
-                <div class="col-4" id="d-btn-6">
-                    <button class="display-btn" disabled></button>
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-4" id="d-btn-7">
-                    <button class="display-btn" disabled></button>
-                </div>
-                <div class="col-4" id="d-btn-8">
-                    <button class="display-btn" disabled></button>
-                </div>
-                <div class="col-4" id="d-btn-9">
-                    <button class="display-btn" disabled></button>
+
+                <div class="col-6">
+                    <!-- User interface -->
+                    <section class="simon-user">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-4" id="u-btn-1">
+                                    <button class="user-btn"></button>
+                                </div>
+                                <div class="col-4" id="u-btn-2">
+                                    <button class="user-btn"></button>
+                                </div>
+                                <div class="col-4" id="u-btn-3">
+                                    <button class="user-btn"></button>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-4" id="u-btn-4">
+                                    <button class="user-btn"></button>
+                                </div>
+                                <div class="col-4" id="u-btn-5">
+                                    <button class="user-btn"></button>
+                                </div>
+                                <div class="col-4" id="u-btn-6">
+                                    <button class="user-btn"></button>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-4" id="u-btn-7">
+                                    <button class="user-btn"></button>
+                                </div>
+                                <div class="col-4" id="u-btn-8">
+                                    <button class="user-btn"></button>
+                                </div>
+                                <div class="col-4" id="u-btn-9">
+                                    <button class="user-btn"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="init-game">Start game</button>
+                    </section>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="simon-game">
-        <button class="init-game">Start game</button>
-    </section>
+    <footer>
+
+    </footer>
 
     <!-- Bootstrap scripts -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>   
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
     <!-- Main script -->
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
