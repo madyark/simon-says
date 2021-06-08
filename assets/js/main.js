@@ -7,10 +7,10 @@ let userButtons = document.getElementsByClassName("user-btn");
 console.log(userButtons);
 let gameInitializer = document.getElementById("init-game");
 
-// Removing the disable property from user or display buttons (based on the arguement)
-let removeButtonDisable = buttonClass => {
+// Removing and add the disable property from user or display buttons (based on the arguements)
+let buttonDisableStatus = (buttonClass, status) => {
     for (let i = 0; i < 9; i++) { // For each button selected with that specific class
-        userButtons[i].disabled = false;
+        userButtons[i].disabled = status;
     }
 }
 
@@ -35,6 +35,7 @@ let removeHighlight = specificButton => {
 // Initializing the display of the buttons
 let initDisplay = () => {
     if (shownButtons.length >= 10) {
+        buttonDisableStatus(userButtons, true) // Disabling the user buttons once the game is finished
         return; // A function escape after the appearance of 10 buttons
     } 
 
@@ -48,11 +49,11 @@ let initDisplay = () => {
     setTimeout(function() { // Removes the button highlight after two seconds
         removeHighlight(chosenBtnDiv); 
         initDisplay();
-    }, 2000);
+    }, 500);
 }
 
 gameInitializer.addEventListener("click", function() {
-    removeButtonDisable(userButtons); // Enabling the user buttons
+    buttonDisableStatus(userButtons, false); // Enabling the user buttons
     shownButtons = []; // Ensures that the array is clear
     initDisplay(); // Displays the buttons based on "Start game" selection
 });
