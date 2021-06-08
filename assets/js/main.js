@@ -46,7 +46,7 @@ let initDisplay = () => {
     shownButtons.push(chosenBtnDiv.id); 
 
     highlightDisplay(chosenBtnDiv);
-    setTimeout(function() { // Removes the button highlight after two seconds
+    setTimeout(function() { // Removes the button highlight and restarts the function
         removeHighlight(chosenBtnDiv); 
         initDisplay();
     }, 500);

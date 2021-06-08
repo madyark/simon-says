@@ -19,6 +19,7 @@ footer {
     text-align: center;
     color: #000000;
     font-size: 40px;
+    letter-spacing: 2px;
 }
 
 /* Specific attributes */
@@ -76,11 +77,8 @@ footer {
 .user-btn {
     border: 1px solid #F0F0F0;
     border-radius: 0px;
-}
-
-.display-btn-highlight {
-    background-color: #00008B;
-    border: none;
+    transition-duration: 0.1s;
+    color: #202020;
 }
 
 #init-game {
@@ -89,9 +87,10 @@ footer {
     margin-right: auto;
     margin-top: 40px;
     width: 150px;
-    background-color: #000000;
     color: #F0F0F0;
-    border: 2px solid #B32400;
+    background-color: #B32400;
+    border: 2px solid #000000;
+    border-radius: 5px;
     padding: 10px;
     font-size: 16px;
     text-transform: uppercase;
@@ -99,7 +98,17 @@ footer {
     letter-spacing: 2px;
 }
 
+#init-game:hover {
+    background-color: #000000;
+    border: 2px solid #B32400;
+}
+
 /* Styles added with javascript */
+
+.display-btn-highlight {
+    background-color: #00008B;
+    border: none;
+}
 
 .hover-bg {
     background-color: yellow;
