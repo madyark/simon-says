@@ -39,7 +39,23 @@ footer {
     margin-right: 0;
 }
 
+.circular-btn-div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
+.circular-btn {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    background-color: #000000;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+
 .simon-display .container, .simon-user .container {
+    margin-top: 20px;
     border-radius: 5px;
     width: 80%; /* 80% of the parent width */
 }
@@ -78,7 +94,8 @@ footer {
     border: 1px solid #F0F0F0;
     border-radius: 0px;
     transition-duration: 0.1s;
-    color: #202020;
+    color: #000000;
+    font-weight: 600;
 }
 
 #init-game {
@@ -99,8 +116,7 @@ footer {
 }
 
 #init-game:hover {
-    background-color: #000000;
-    border: 2px solid #B32400;
+    background-color: #991F00;
 }
 
 /* Styles added with javascript */
