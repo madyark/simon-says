@@ -40,16 +40,21 @@ let initDisplay = () => {
     } 
 
     let ranNum = selectRandomNumber(1, 9);
+
     let chosenBtnDiv = document.getElementById(`d-btn-${ranNum}`);
 
     // Adding the highlighted button to the shownButtons array
     shownButtons.push(chosenBtnDiv.id); 
 
     highlightDisplay(chosenBtnDiv);
+
     setTimeout(function() { // Removes the button highlight and restarts the function
         removeHighlight(chosenBtnDiv); 
-        initDisplay();
-    }, 500);
+    }, 400);
+
+    setTimeout(function() {
+        initDisplay(); 
+    }, 800)
 }
 
 gameInitializer.addEventListener("click", function() {
