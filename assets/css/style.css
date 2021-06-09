@@ -98,24 +98,38 @@ footer {
     font-weight: 600;
 }
 
-#init-game {
+#init-game, #reset-game {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 40px;
+    margin-top: 50px;
     width: 150px;
-    color: #F0F0F0;
-    background-color: #B32400;
-    border: 2px solid #000000;
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
     text-transform: uppercase;
-    font-weight: 300;
     letter-spacing: 2px;
 }
 
+#init-game {
+    background-color: #202020;
+    color: #FFFFEF;
+    border: 2px solid #00008B;
+    font-weight: 500;
+}
+
 #init-game:hover {
+    background-color: #000000;
+}
+
+#reset-game {
+    background-color: #B32400;
+    color: #F0F0F0;
+    border: 2px solid #000000;
+    font-weight: 300;
+}
+
+#reset-game:hover {
     background-color: #991F00;
 }
 
