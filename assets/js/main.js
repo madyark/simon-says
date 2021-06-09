@@ -35,7 +35,8 @@ let removeHighlight = specificButton => {
 // Initializing the display of the buttons
 let initDisplay = () => {
     if (shownButtons.length >= 10) {
-        buttonDisableStatus(userButtons, true) // Disabling the user buttons once the game is finished
+        buttonDisableStatus(userButtons, true); // Disabling the user buttons once the game is finished
+        gameInitializer.disabled = false; // Enabling the start-game button
         return; // A function escape after the appearance of 10 buttons
     } 
 
@@ -53,11 +54,12 @@ let initDisplay = () => {
     }, 400);
 
     setTimeout(function() {
-        initDisplay(); 
+        initDisplay(); // Function recall
     }, 800)
 }
 
 gameInitializer.addEventListener("click", function() {
+    gameInitializer.disabled = true; // Disabling the start-game button to prevent overclicking
     buttonDisableStatus(userButtons, false); // Enabling the user buttons
     shownButtons = []; // Ensures that the array is clear
     initDisplay(); // Displays the buttons based on "Start game" selection
