@@ -20,7 +20,7 @@
 
     <section id="simon-load">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-6">
                     <!-- Computer display -->
                     <section class="simon-display">
@@ -94,35 +94,35 @@
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-4" id="u-btn-1">
-                                    <button class="user-btn" disabled type="button">Q</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">Q</button>
                                 </div>
                                 <div class="col-4" id="u-btn-2">
-                                    <button class="user-btn" disabled type="button">W</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">W</button>
                                 </div>
                                 <div class="col-4" id="u-btn-3">
-                                    <button class="user-btn" disabled type="button">E</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">E</button>
                                 </div>
                             </div>
                             <div class="row align-items-center">
                                 <div class="col-4" id="u-btn-4">
-                                    <button class="user-btn" disabled type="button">A</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">A</button>
                                 </div>
                                 <div class="col-4" id="u-btn-5">
-                                    <button class="user-btn" disabled type="button">S</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">S</button>
                                 </div>
                                 <div class="col-4" id="u-btn-6">
-                                    <button class="user-btn" disabled type="button">D</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">D</button>
                                 </div>
                             </div>
                             <div class="row align-items-center">
                                 <div class="col-4" id="u-btn-7">
-                                    <button class="user-btn" disabled type="button">Z</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">Z</button>
                                 </div>
                                 <div class="col-4" id="u-btn-8">
-                                    <button class="user-btn" disabled type="button">X</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">X</button>
                                 </div>
                                 <div class="col-4" id="u-btn-9">
-                                    <button class="user-btn" disabled type="button">C</button>
+                                    <button class="user-btn user-btn-disabled" disabled type="button">C</button>
                                 </div>
                             </div>
                         </div>
@@ -131,8 +131,10 @@
             </div>
         </div>
 
-        <button id="init-game" type="button">Start</button>
-        <button id="reset-game" type="button">Reset</button>
+        <div class="row justify-content-center" id="game-buttons">
+            <button id="init-game" type="button">Start</button>
+            <button id="reset-game" type="button">Reset</button>
+        </div>
     </section>
 
     <footer>

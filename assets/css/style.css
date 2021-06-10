@@ -14,25 +14,26 @@ footer {
     height: 50px;
 }
 
+/* Specific attributes */
+
 .simon-header {
     font-weight: 800;
     text-align: center;
-    color: #000000;
-    font-size: 40px;
-    letter-spacing: 2px;
+    color: #B32400;
+    font-size: 45px;
+    letter-spacing: 5px;
+    text-shadow:  -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+    /* Adds a dark border for the letters inside of the header */
 }
-
-/* Specific attributes */
 
 #simon-load { /* Stacking the two sections side by side horizontally */
     display: block;
     max-width: 100%;
-    box-sizing: border-box;
     margin-top: 50px;
     overflow-x: hidden; /* Makes sure that the section does not overflow horizontally */
 }
 
-#simon-load .col-6 {
+#simon-load .col-6 { /* Resetting bootstrap horizontal padding and margin values */
     padding-left: 0;
     padding-right: 0;
     margin-left: 0;
@@ -49,66 +50,78 @@ footer {
     border-radius: 50%;
     height: 20px;
     width: 20px;
-    background-color: #000000;
+    background-color: #696969;
+    border: 2px solid #000000;
     margin-right: 15px;
     margin-bottom: 20px;
 }
 
 .simon-display .container, .simon-user .container {
-    margin-top: 20px;
-    border-radius: 5px;
     width: 80%; /* 80% of the parent width */
+    box-sizing: content-box;
+    margin-top: 20px;
 }
 
 .simon-display .container {
     background-color: #000000;
+    border-radius: 5px;
     border: 5px solid #B32400;
 }
 
-.simon-user .container {
-    background-color: #008000;
-    border: 5px solid #202020;
+.simon-display .row {
+    height: 105px; /* Greater height to give both containers the appearance of equal vertical height */
 }
 
-.simon-display .row, .simon-user .row {
+.simon-user .row {
     height: 100px;
+    margin-bottom: 10px;
 }
 
-.simon-display .col-4, .simon-user .col-4 {
+.simon-display .col-4 {
     padding-right: 0px;
     padding-left: 0px;
 }
 
-.display-btn, .user-btn {
-    width: 100%;
-    height: 100px;
-    background-color: inherit;
+.simon-user .col-4 {
+    padding: 5px;
 }
 
-.display-btn {
-    border: none;
+.display-btn, .user-btn {
+    width: 100%;
     border-radius: 5px;
 }
 
+.display-btn {
+    height: 105px;
+    border: none;
+    background-color: inherit;
+}
+
 .user-btn {
-    border: 1px solid #F0F0F0;
-    border-radius: 0px;
-    transition-duration: 0.1s;
+    height: 100px;
+    border: 2px solid #242625;
     color: #000000;
     font-weight: 600;
 }
 
+.user-btn-disabled {
+    background-color: #646464;
+}
+
+#game-buttons {
+    margin-top: 50px;
+}
+
 #init-game, #reset-game {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
     width: 150px;
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 #init-game {
@@ -140,8 +153,8 @@ footer {
     border: none;
 }
 
-.hover-bg {
-    background-color: yellow;
+.user-btn-enabled {
+    background-color: #D0D0D0;
 }
 
 /* Media queries */
