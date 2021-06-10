@@ -58,7 +58,7 @@ footer {
 
 .simon-display .container, .simon-user .container {
     width: 80%; /* 80% of the parent width */
-    box-sizing: content-box;
+    box-sizing: border-box;
     margin-top: 20px;
 }
 
@@ -104,7 +104,7 @@ footer {
     font-weight: 600;
 }
 
-.user-btn-disabled {
+.user-btn-disabled-true {
     background-color: #646464;
 }
 
@@ -153,7 +153,7 @@ footer {
     border: none;
 }
 
-.user-btn-enabled {
+.user-btn-disabled-false {
     background-color: #D0D0D0;
 }
 
