@@ -3,6 +3,7 @@ let shownButtons = [];
 let resetStatus = false;
 let highlightedDisplayCircles = [];
 let highlightedUserCircles = [];
+let selectedButtons = [];
 
 // Selecting DOM attributes
 let displayButtons = document.getElementsByClassName("display-btn");
@@ -81,6 +82,7 @@ let displayChange = (buttonsArray, i) => {
 
 // User selected button highlight 
 let userSelection = selectedButton => { // Adds and removes a highlight of the user selected button
+    selectedButtons.push(selectedButton);
     selectedButton.id = `user-btn-highlight`;
 
     setTimeout(function() {
@@ -95,7 +97,9 @@ let initDisplay = () => {
         removeHighlightDisplayCircle(); // Removing highlighted display circles
         userButtonStatus(true); // Disabling the user buttons once the game is finished
         return; 
-    } 
+    }
+    
+    selectedButtons = []; // Clear the user selected buttons
 
     highlightDisplayCircle(shownButtons.length + 1); // Highlights a new display circle signifying the start of a new round 
 
@@ -111,15 +115,21 @@ let initDisplay = () => {
 
 for (let i = 0; i < userButtons.length; i++) { // Adding an event listener for each of the user buttons
     userButtons[i].addEventListener("click", function() {
-        initDisplay();
         userSelection(userButtons[i]);
+
+        if (selectedButtons.length === shownButtons.length) {
+            setTimeout(function() {
+                initDisplay(); // Initialize the display of buttons only if the user selected enough buttons
+            }, 400);
+        }
     });
 }
 
 gameInitializer.addEventListener("click", function() {
     gameInitializer.disabled = true; // Disabling the start-game button to prevent overclicking
     resetBtn.disabled = false; // Enabling the reset button
-    shownButtons = []; // Ensures that the array is clear
+    shownButtons = []; // Ensures that the shown buttons array is clear
+    selectedButtons = []; // Clears the user selected buttons
     initDisplay(); // Displays the buttons based on "Start game" selection
 });
 
@@ -133,4 +143,3 @@ resetBtn.addEventListener("click", function() {
         gameInitializer.disabled = false;
     }, 500);
 });
-
