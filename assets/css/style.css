@@ -105,7 +105,7 @@ footer {
 }
 
 .hidden-keys {
-    font-size: 0;
+    font-size: 0; /* Hides the keyboard options from the screen */
 }
 
 .user-btn-disabled-true {
@@ -159,6 +159,10 @@ footer {
 
 .user-btn-disabled-false {
     background-color: #D0D0D0;
+}
+
+#user-btn-highlight {
+    background-color: #3385FF;
 }
 
 /* Media queries */

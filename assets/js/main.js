@@ -18,6 +18,15 @@ let userButtonStatus = (status) => {
 
 // Add user instructions when hovering over the button containers
 
+// User selected button highlight 
+let userSelection = selectedButton => { // Adds and removes a highlight of the user selected button
+    selectedButton.id = `user-btn-highlight`;
+
+    setTimeout(function() {
+        selectedButton.id = ``;
+    }, 200);
+}
+
 // Random number selector
 let selectRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min; 
@@ -79,6 +88,7 @@ let initDisplay = () => {
 for (let i = 0; i < userButtons.length; i++) { // Adding an event listener for each of the user buttons
     userButtons[i].addEventListener("click", function() {
         initDisplay();
+        userSelection(userButtons[i]);
     });
 }
 
