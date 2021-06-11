@@ -12,7 +12,7 @@ let resetBtn = document.getElementById("reset-game");
 let userButtonStatus = (status) => {
     for (let i = 0; i < userButtons.length; i++) {
         userButtons[i].disabled = status;
-        userButtons[i].classList = `user-btn user-btn-disabled-${status}`;
+        userButtons[i].classList = `user-btn user-btn-disabled-${status} hidden-keys`;
     }
 }
 

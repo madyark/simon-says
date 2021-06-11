@@ -104,6 +104,10 @@ footer {
     font-weight: 600;
 }
 
+.hidden-keys {
+    font-size: 0;
+}
+
 .user-btn-disabled-true {
     background-color: #646464;
 }
