@@ -1,6 +1,8 @@
 // Declaring required variables
 let shownButtons = [];
 let resetStatus = false;
+let highlightedDisplayCircles = [];
+let highlightedUserCircles = [];
 
 // Selecting DOM attributes
 let displayButtons = document.getElementsByClassName("display-btn");
@@ -18,13 +20,22 @@ let userButtonStatus = (status) => {
 
 // Add user instructions when hovering over the button containers
 
-// User selected button highlight 
-let userSelection = selectedButton => { // Adds and removes a highlight of the user selected button
-    selectedButton.id = `user-btn-highlight`;
-
+// Display circle highlight
+let highlightDisplayCircle = number => {
+    let circle = document.getElementById(`d-circle-${number}`);
+    highlightedDisplayCircles.push(circle)
     setTimeout(function() {
-        selectedButton.id = ``;
-    }, 200);
+        circle.classList = `circular-btn circle-on`;
+    }, 100);
+}
+
+// Remove display circle highlight 
+let removeHighlightDisplayCircle = () => {
+    highlightedDisplayCircles.forEach(function(circle) {
+        circle.classList = `circular-btn circle-off`;
+    });
+
+    highlightedDisplayCircles = []; // Clearing the array
 }
 
 // Random number selector
@@ -68,12 +79,25 @@ let displayChange = (buttonsArray, i) => {
     }, 600);
 }
 
+// User selected button highlight 
+let userSelection = selectedButton => { // Adds and removes a highlight of the user selected button
+    selectedButton.id = `user-btn-highlight`;
+
+    setTimeout(function() {
+        selectedButton.id = ``;
+    }, 200);
+}
+
 // Initializing the display of the buttons
 let initDisplay = () => {
     if (shownButtons.length >= 10 || resetStatus === true) {
+        gameInitializer.disabled = false;
+        removeHighlightDisplayCircle(); // Removing highlighted display circles
         userButtonStatus(true); // Disabling the user buttons once the game is finished
         return; 
     } 
+
+    highlightDisplayCircle(shownButtons.length + 1); // Highlights a new display circle signifying the start of a new round 
 
     let ranNum = selectRandomNumber(1, 9);
 
@@ -102,6 +126,7 @@ gameInitializer.addEventListener("click", function() {
 resetBtn.addEventListener("click", function() {
     resetStatus = true;
     resetBtn.disabled = true;
+    removeHighlightDisplayCircle(); // Removing highlighted displayed circles
 
     setTimeout(function() {
         resetStatus = false; // Passing on the false value to the resetStatus again

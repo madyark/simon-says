@@ -50,10 +50,13 @@ footer {
     border-radius: 50%;
     height: 20px;
     width: 20px;
-    background-color: #696969;
     border: 2px solid #000000;
     margin-right: 15px;
     margin-bottom: 20px;
+}
+
+.circle-off { /* Default circle background that changes as the game progresses */
+    background-color: #696969;
 }
 
 .simon-display .container, .simon-user .container {
@@ -151,6 +154,10 @@ footer {
 }
 
 /* Styles added with javascript */
+
+.circle-on {
+    background-color: #00CC33;
+}
 
 .display-btn-highlight {
     background-color: #00BFFF;
