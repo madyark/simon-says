@@ -62,7 +62,10 @@ let displayChange = (buttonsArray, i) => {
     }
 
     userButtonStatus(true); // Disabling the user buttons before the highlight
-    highlightDisplay(buttonsArray[i]); // Add the button highlight
+    
+    setTimeout(function() {
+        highlightDisplay(buttonsArray[i]); // Add the button highlight
+    }, 100);
 
     setTimeout(function() { 
         removeHighlight(buttonsArray[i]); // Remove the button highlight
@@ -118,9 +121,7 @@ for (let i = 0; i < userButtons.length; i++) { // Adding an event listener for e
         userSelection(userButtons[i]);
 
         if (selectedButtons.length === shownButtons.length) {
-            setTimeout(function() {
-                initDisplay(); // Initialize the display of buttons only if the user selected enough buttons
-            }, 400);
+            initDisplay(); // Initialize the display of buttons only if the user selected enough buttons
         }
     });
 }
@@ -137,6 +138,7 @@ resetBtn.addEventListener("click", function() {
     resetStatus = true;
     resetBtn.disabled = true;
     removeHighlightDisplayCircle(); // Removing highlighted displayed circles
+    userButtonStatus(true); // Disabling the user buttons once the reset button has been clicked
 
     setTimeout(function() {
         resetStatus = false; // Passing on the false value to the resetStatus again
