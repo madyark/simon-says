@@ -88,7 +88,7 @@ let displayChange = (buttonsArray, i) => {
     
     setTimeout(function() {
         highlightDisplay(buttonsArray[i]); // Add the button highlight
-    }, 100);
+    }, 150);
 
     setTimeout(function() { 
         removeHighlight(buttonsArray[i]); // Remove the button highlight
@@ -136,7 +136,7 @@ let userSelection = selectedButton => { // Adds and removes a highlight of the u
 
     setTimeout(function() {
         selectedButton.id = ``;
-    }, 200);
+    }, 150);
 }
 
 // Process user selections 
