@@ -39,6 +39,24 @@ let removeHighlightDisplayCircle = () => {
     highlightedDisplayCircles = []; // Clearing the array
 }
 
+// User circles highlights
+let highlightUserCircles = () => {
+    for (let i = 0; i < selectedButtons.length; i++) {
+        let circle = document.getElementById(`u-circle-${i+1}`);  // Highlight circles based on the number of buttons pressed
+        circle.classList = `circular-btn circle-on`;
+        highlightedUserCircles.push(circle);
+    }
+}
+
+// Remove highlights from user circles
+let removeHighlightUserCircles = () => {
+    highlightedUserCircles.forEach(function(circle) {
+        circle.classList = `circular-btn circle-off`;
+    });
+
+    highlightedUserCircles = []; // Clearing the array after the removal of highlights
+}
+
 // Random number selector
 let selectRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min; 
@@ -84,7 +102,7 @@ let displayChange = (buttonsArray, i) => {
         return;
     }
 
-    userButtonStatus(true); // Disabling the user buttons before the highlight
+    userButtonStatus(true); // Disabling the user buttons before the highlight immediately
     
     setTimeout(function() {
         highlightDisplay(buttonsArray[i]); // Add the button highlight
@@ -111,6 +129,7 @@ let initDisplay = () => {
     if (shownButtons.length >= 10 || resetStatus === true) {
         gameInitializer.disabled = false;
         removeHighlightDisplayCircle(); // Removing highlighted display circles
+        removeHighlightUserCircles(); // Removing highlighted user circles
         userButtonStatus(true); // Disabling the user buttons once the game is finished
         return; 
     }
@@ -169,10 +188,14 @@ let lostGame = () => {
 for (let i = 0; i < userButtons.length; i++) { // Adding an event listener for each of the user buttons
     userButtons[i].addEventListener("click", function() {
         userSelection(userButtons[i]);
+        highlightUserCircles();
 
-        if (selectedButtons.length === shownButtons.length) {
-            processUserSelections(); // Checking if the user selections were correct
-            initDisplay(); // Initialize the display of buttons only if the user selected enough buttons
+        if (selectedButtons.length === shownButtons.length) { // Execute the function after a small time to allow the user to see the changes in highlights
+            setTimeout(function() {
+                removeHighlightUserCircles(); // Removing the user circle highlights
+                processUserSelections(); // Checking if the user selections were correct
+                initDisplay(); // Initialize the display of buttons only if the user selected enough buttons
+            }, 100);
         }
     });
 }
@@ -191,6 +214,7 @@ resetBtn.addEventListener("click", function() {
     resetStatus = true;
     resetBtn.disabled = true;
     removeHighlightDisplayCircle(); // Removing highlighted displayed circles
+    removeHighlightUserCircles(); // Removing highlighted user circles
     userButtonStatus(true); // Disabling the user buttons once the reset button has been clicked
 
     setTimeout(function() {
