@@ -1,9 +1,9 @@
 // Declaring required variables
 let shownButtons = [];
+let selectedButtons = [];
 let resetStatus = false;
 let highlightedDisplayCircles = [];
 let highlightedUserCircles = [];
-let selectedButtons = [];
 
 // Selecting DOM attributes
 let displayButtons = document.getElementsByClassName("display-btn");
@@ -45,6 +45,29 @@ let selectRandomNumber = (min, max) => {
     // Returns a number between the included min, max range
 }
 
+// Checking if the values of two arrays are equal
+let checkArrayEquality = (array1, array2) => {
+    if (array1.length === array2.length) { // Ensuring the two arrays have the same length
+        let trueOrFalse = [];
+
+        for (let i = 0; i < array1.length; i++) {
+            if (array1[i] === array2[i]) { // Each value should be equal in the corresponding index
+                trueOrFalse.push(true);
+            } else {
+                trueOrFalse.push(false); // If one of the matching values are not equal, then push a boolean value of false
+            }
+        }
+
+        if (trueOrFalse.includes(false)) {
+            return false; 
+        } else {
+            return true; // If boolean false is not in the trueOrFalse array, return true
+        }
+    } else {
+        return false;
+    }
+}
+
 // Highlight display button
 let highlightDisplay = specificButton => {
     specificButton.innerHTML = `<button class="display-btn display-btn-highlight" disabled></button>`;
@@ -83,16 +106,6 @@ let displayChange = (buttonsArray, i) => {
     }, 600);
 }
 
-// User selected button highlight 
-let userSelection = selectedButton => { // Adds and removes a highlight of the user selected button
-    selectedButtons.push(selectedButton);
-    selectedButton.id = `user-btn-highlight`;
-
-    setTimeout(function() {
-        selectedButton.id = ``;
-    }, 200);
-}
-
 // Initializing the display of the buttons
 let initDisplay = () => {
     if (shownButtons.length >= 10 || resetStatus === true) {
@@ -116,16 +129,55 @@ let initDisplay = () => {
     displayChange(shownButtons, iterator); // Displaying the computer selected buttons from the array one by one, based on their index
 }
 
+// User selected button highlight 
+let userSelection = selectedButton => { // Adds and removes a highlight of the user selected button
+    selectedButtons.push(selectedButton);
+    selectedButton.id = `user-btn-highlight`;
+
+    setTimeout(function() {
+        selectedButton.id = ``;
+    }, 200);
+}
+
+// Process user selections 
+let processUserSelections = () => {
+    let displayedButtonsID = []; // Stores the values of the buttons the computer displayed
+    shownButtons.forEach(function(button) {
+        displayedButtonsID.push(button.id.charAt(button.id.length - 1)); // Pushing the last character of the id name (a number between 1 and 9) to the array
+    });
+
+    let selectedButtonsName = []; // Stores the values of the buttons the user selected
+    selectedButtons.forEach(function(button) {
+        selectedButtonsName.push(button.name.charAt(button.name.length - 1)); // Pushing the last character of the name (a number between 1 and 9) to the array
+    });
+
+    let equalityAnswer = checkArrayEquality(displayedButtonsID, selectedButtonsName); // Check if the two arrays are equal and store the answer in a variable
+
+    if (equalityAnswer) {
+        return;
+    } else {
+        lostGame(); // If the two arrays are not equal, execute the lostGame() function
+    }
+}
+
+// User lost the game
+let lostGame = () => {
+    alert("You've lost");
+}
+
+// User buttons event listeners
 for (let i = 0; i < userButtons.length; i++) { // Adding an event listener for each of the user buttons
     userButtons[i].addEventListener("click", function() {
         userSelection(userButtons[i]);
 
         if (selectedButtons.length === shownButtons.length) {
+            processUserSelections(); // Checking if the user selections were correct
             initDisplay(); // Initialize the display of buttons only if the user selected enough buttons
         }
     });
 }
 
+// Start button event listener
 gameInitializer.addEventListener("click", function() {
     gameInitializer.disabled = true; // Disabling the start-game button to prevent overclicking
     resetBtn.disabled = false; // Enabling the reset button
@@ -134,6 +186,7 @@ gameInitializer.addEventListener("click", function() {
     initDisplay(); // Displays the buttons based on "Start game" selection
 });
 
+// Reset button event listener
 resetBtn.addEventListener("click", function() {
     resetStatus = true;
     resetBtn.disabled = true;
