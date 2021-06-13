@@ -20,7 +20,7 @@ let removeHighlightDisplayCircle = () => {
 }
 
 // User circles highlights
-let highlightUserCircles = (selectionNumber) => {
+let highlightUserCircles = selectionNumber => {
     for (let i = 0; i < selectionNumber; i++) { // Highlight circles based on the number of buttons pressed
         let circle = document.getElementById(`u-circle-${i+1}`); 
         circle.classList = `circular-btn circle-on`;
