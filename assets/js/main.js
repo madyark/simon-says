@@ -1,7 +1,7 @@
 // Declaring imports
-import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./circles.js";
-import {selectRandomNumber} from "./random.js";
-import {checkArrayEquality} from "./arrays.js";
+import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./modules/circles.js";
+import {selectRandomNumber} from "./modules/random.js";
+import {checkArrayEquality} from "./modules/arrays.js";
 
 // Declaring required variables
 let shownButtons = [];
