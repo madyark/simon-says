@@ -1,3 +1,6 @@
+// Declaring imports
+import {selectRandomNumber} from "./random.js";
+
 // Declaring required variables
 let shownButtons = [];
 let selectedButtons = [];
@@ -55,12 +58,6 @@ let removeHighlightUserCircles = () => {
     });
 
     highlightedUserCircles = []; // Clearing the array after the removal of highlights
-}
-
-// Random number selector
-let selectRandomNumber = (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min; 
-    // Returns a number between the included min, max range
 }
 
 // Checking if the values of two arrays are equal
