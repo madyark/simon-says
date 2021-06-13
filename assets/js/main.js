@@ -1,6 +1,7 @@
 // Declaring imports
-import {selectRandomNumber} from "./random.js";
 import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./circles.js";
+import {selectRandomNumber} from "./random.js";
+import {checkArrayEquality} from "./arrays.js";
 
 // Declaring required variables
 let shownButtons = [];
@@ -18,29 +19,6 @@ let userButtonStatus = (status) => {
     for (let i = 0; i < userButtons.length; i++) {
         userButtons[i].disabled = status;
         userButtons[i].classList = `user-btn user-btn-disabled-${status} hidden-keys`;
-    }
-}
-
-// Checking if the values of two arrays are equal
-let checkArrayEquality = (array1, array2) => {
-    if (array1.length === array2.length) { // Ensuring the two arrays have the same length
-        let trueOrFalse = [];
-
-        for (let i = 0; i < array1.length; i++) {
-            if (array1[i] === array2[i]) { // Each value should be equal in the corresponding index
-                trueOrFalse.push(true);
-            } else {
-                trueOrFalse.push(false); // If one of the matching values are not equal, then push a boolean value of false
-            }
-        }
-
-        if (trueOrFalse.includes(false)) {
-            return false; 
-        } else {
-            return true; // If boolean false is not in the trueOrFalse array, return true
-        }
-    } else {
-        return false;
     }
 }
 
@@ -137,7 +115,7 @@ let processUserSelections = () => {
     }
 }
 
-// User lost the game
+// Failed attempt
 let lostGame = () => {
     alert("You've lost");
 }
