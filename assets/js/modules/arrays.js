@@ -21,4 +21,4 @@ let checkArrayEquality = (array1, array2) => {
     }
 }
 
-export {checkArrayEquality};
+export default checkArrayEquality;

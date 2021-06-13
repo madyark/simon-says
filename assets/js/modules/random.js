@@ -4,4 +4,4 @@ let selectRandomNumber = (min, max) => {
     // Returns a number between the included min, max range
 }
 
-export {selectRandomNumber};
+export default selectRandomNumber;

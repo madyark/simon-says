@@ -1,7 +1,7 @@
 // Declaring imports
 import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./modules/circles.js";
-import {selectRandomNumber} from "./modules/random.js";
-import {checkArrayEquality} from "./modules/arrays.js";
+import selectRandomNumber from "./modules/random.js";
+import checkArrayEquality from "./modules/arrays.js";
 import userButtonStatus from "./modules/user-buttons.js";
 
 // Declaring required variables
