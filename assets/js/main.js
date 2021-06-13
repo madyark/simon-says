@@ -1,12 +1,11 @@
 // Declaring imports
 import {selectRandomNumber} from "./random.js";
+import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./circles.js";
 
 // Declaring required variables
 let shownButtons = [];
 let selectedButtons = [];
 let resetStatus = false;
-let highlightedDisplayCircles = [];
-let highlightedUserCircles = [];
 
 // Selecting DOM attributes
 let displayButtons = document.getElementsByClassName("display-btn");
@@ -20,44 +19,6 @@ let userButtonStatus = (status) => {
         userButtons[i].disabled = status;
         userButtons[i].classList = `user-btn user-btn-disabled-${status} hidden-keys`;
     }
-}
-
-// Add user instructions when hovering over the button containers
-
-// Display circle highlight
-let highlightDisplayCircle = number => {
-    let circle = document.getElementById(`d-circle-${number}`);
-    highlightedDisplayCircles.push(circle)
-    setTimeout(function() {
-        circle.classList = `circular-btn circle-on`;
-    }, 100);
-}
-
-// Remove display circle highlight 
-let removeHighlightDisplayCircle = () => {
-    highlightedDisplayCircles.forEach(function(circle) {
-        circle.classList = `circular-btn circle-off`;
-    });
-
-    highlightedDisplayCircles = []; // Clearing the array
-}
-
-// User circles highlights
-let highlightUserCircles = () => {
-    for (let i = 0; i < selectedButtons.length; i++) {
-        let circle = document.getElementById(`u-circle-${i+1}`);  // Highlight circles based on the number of buttons pressed
-        circle.classList = `circular-btn circle-on`;
-        highlightedUserCircles.push(circle);
-    }
-}
-
-// Remove highlights from user circles
-let removeHighlightUserCircles = () => {
-    highlightedUserCircles.forEach(function(circle) {
-        circle.classList = `circular-btn circle-off`;
-    });
-
-    highlightedUserCircles = []; // Clearing the array after the removal of highlights
 }
 
 // Checking if the values of two arrays are equal
@@ -185,7 +146,7 @@ let lostGame = () => {
 for (let i = 0; i < userButtons.length; i++) { // Adding an event listener for each of the user buttons
     userButtons[i].addEventListener("click", function() {
         userSelection(userButtons[i]);
-        highlightUserCircles();
+        highlightUserCircles(selectedButtons.length); // Highlight the number of user circles based on the amount of buttons selected
 
         if (selectedButtons.length === shownButtons.length) { // Execute the function after a small time to allow the user to see the changes in highlights
             setTimeout(function() {
