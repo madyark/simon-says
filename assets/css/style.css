@@ -144,19 +144,11 @@ footer {
     font-weight: 500;
 }
 
-#init-game:hover {
-    background-color: #000000;
-}
-
 #reset-game {
     background-color: #B32400;
     color: #F0F0F0;
     border: 2px solid #000000;
     font-weight: 400;
-}
-
-#reset-game:hover {
-    background-color: #991F00;
 }
 
 /* Styles added with javascript */
