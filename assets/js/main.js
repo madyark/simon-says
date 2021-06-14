@@ -2,59 +2,26 @@
 import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./modules/circles.js"; // Add and remove highlights from display and user circles
 import selectRandomNumber from "./modules/random.js"; // Choose a random number in range between two values
 import checkArrayEquality from "./modules/arrays.js"; // Ensure two arrays hold the same values in the same order 
-import userButtonStatus from "./modules/user-buttons.js"; // Change the disabled status of user buttons
-import {highlightDisplay, removeHighlight} from "./modules/display-buttons.js"; // Add and remove highlights from display buttons
+import userButtonStatus from "./modules/user-btn-status.js"; // Change the disabled status of user buttons
+import displayChange from "./modules/display-buttons.js"; // Add and remove highlights from display buttons
 import lostGame from "./modules/lost.js"; // Execute after a failed attempt from the user
+import {resetStatus, resetBtn, reset} from "./modules/reset.js";
+import finished from "./modules/finished.js";
+import userSelection from "./modules/user-btn-highlight.js";
+import {userButtons, selectedButtons, clearSelectedButtons} from "./modules/user-btn-select.js";
+import {gameInitializer} from "./modules/start.js";
 
 // Declaring required variables
 let shownButtons = [];
-let selectedButtons = [];
-let resetStatus = false;
-
-// Selecting DOM attributes
-let userButtons = document.getElementsByClassName("user-btn");
-let gameInitializer = document.getElementById("init-game");
-let resetBtn = document.getElementById("reset-game");
-
-// Add and remove the highlight on the specific button
-let displayChange = (buttonsArray, i) => {
-    if (resetStatus === true) { // Quick function exit if the reset button has been clicked
-        return;
-    }
-
-    userButtonStatus(true, userButtons); // Disabling the user buttons before the highlight immediately
-    
-    setTimeout(function() {
-        highlightDisplay(buttonsArray[i]); // Add the button highlight
-    }, 150);
-
-    setTimeout(function() { 
-        removeHighlight(buttonsArray[i]); // Remove the button highlight
-    }, 400);
-
-    setTimeout(function() {
-        i++;
-
-        if (i === buttonsArray.length) {
-            userButtonStatus(false, userButtons); // Enabling the user buttons after the removal of all the highlights
-            return; // Function escape
-        } else {
-            displayChange(buttonsArray, i); // Function recall for the rest of the buttonsArray
-        }
-    }, 600);
-}
 
 // Initializing the display of the buttons
 let initDisplay = () => {
-    if (shownButtons.length >= 10 || resetStatus === true) {
-        gameInitializer.disabled = false;
-        removeHighlightDisplayCircle(); // Removing highlighted display circles
-        removeHighlightUserCircles(); // Removing highlighted user circles
-        userButtonStatus(true, userButtons); // Disabling the user buttons once the game is finished
+    if (shownButtons.length >= 10) {
+        finished();
         return; 
     }
     
-    selectedButtons = []; // Clear the user selected buttons
+    clearSelectedButtons(); // Clear the selectedButtons array
 
     highlightDisplayCircle(shownButtons.length + 1); // Highlights a new display circle signifying the start of a new round 
 
@@ -66,16 +33,6 @@ let initDisplay = () => {
     
     let iterator = 0;
     displayChange(shownButtons, iterator); // Displaying the computer selected buttons from the array one by one, based on their index
-}
-
-// User selected button highlight 
-let userSelection = selectedButton => { // Adds and removes a highlight of the user selected button
-    selectedButtons.push(selectedButton);
-    selectedButton.id = `user-btn-highlight`;
-
-    setTimeout(function() {
-        selectedButton.id = ``;
-    }, 150);
 }
 
 // Process user selections 
@@ -120,7 +77,7 @@ let startGame = () => {
     gameInitializer.disabled = true; // Disabling the start-game button to prevent overclicking
     resetBtn.disabled = false; // Enabling the reset button
     shownButtons = []; // Ensures that the shown buttons array is clear
-    selectedButtons = []; // Clears the user selected buttons
+    clearSelectedButtons(); // Clear the selectedButtons array
     initDisplay(); // Displays the buttons based on "Start game" selection
 }
 
@@ -128,21 +85,6 @@ let startGame = () => {
 gameInitializer.addEventListener("click", function() {
     startGame();
 });
-
-
-// Reset function
-let reset = () => {
-    resetStatus = true;
-    resetBtn.disabled = true;
-    removeHighlightDisplayCircle(); // Removing highlighted displayed circles
-    removeHighlightUserCircles(); // Removing highlighted user circles
-    userButtonStatus(true, userButtons); // Disabling the user buttons once the reset button has been clicked
-
-    setTimeout(function() {
-        resetStatus = false; // Passing on the false value to the resetStatus again
-        gameInitializer.disabled = false;
-    }, 500);
-}
 
 // Reset button event listener
 resetBtn.addEventListener("click", function() {
