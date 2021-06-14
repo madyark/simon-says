@@ -1,7 +1,7 @@
 import finished from "./finished.js";
 
-let resetStatus = false;
 let resetBtn = document.getElementById("reset-game");
+let resetStatus = false;
 
 // Reset function
 let reset = () => {
