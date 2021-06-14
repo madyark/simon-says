@@ -1,6 +1,6 @@
 // Declaring module imports
 import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./modules/circles.js"; // Add and remove highlights from display and user circles
-import selectRandomNumber from "./modules/random.js"; // Choose a random number between two values
+import selectRandomNumber from "./modules/random.js"; // Choose a random number in range between two values
 import checkArrayEquality from "./modules/arrays.js"; // Ensure two arrays hold the same values in the same order 
 import userButtonStatus from "./modules/user-buttons.js"; // Change the disabled status of user buttons
 import {highlightDisplay, removeHighlight} from "./modules/display-buttons.js"; // Add and remove highlights from display buttons
@@ -119,17 +119,23 @@ for (let i = 0; i < userButtons.length; i++) { // Adding an event listener for e
     });
 }
 
-// Start button event listener
-gameInitializer.addEventListener("click", function() {
+// Start game function
+let startGame = () => {
     gameInitializer.disabled = true; // Disabling the start-game button to prevent overclicking
     resetBtn.disabled = false; // Enabling the reset button
     shownButtons = []; // Ensures that the shown buttons array is clear
     selectedButtons = []; // Clears the user selected buttons
     initDisplay(); // Displays the buttons based on "Start game" selection
+}
+
+// Start button event listener
+gameInitializer.addEventListener("click", function() {
+    startGame();
 });
 
-// Reset button event listener
-resetBtn.addEventListener("click", function() {
+
+// Reset function
+let reset = () => {
     resetStatus = true;
     resetBtn.disabled = true;
     removeHighlightDisplayCircle(); // Removing highlighted displayed circles
@@ -140,4 +146,9 @@ resetBtn.addEventListener("click", function() {
         resetStatus = false; // Passing on the false value to the resetStatus again
         gameInitializer.disabled = false;
     }, 500);
+}
+
+// Reset button event listener
+resetBtn.addEventListener("click", function() {
+    reset();
 });
