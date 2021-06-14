@@ -108,8 +108,9 @@ footer {
     cursor: default !important; /* Had to use !important in order to override given bootstrap parameters */
 }
 
-.user-btn:focus {
-    outline-color: #000000; /* Changes the Chrome browser's focus color to maintain the aesthetic design but still ensures accessibility features */
+.user-btn:focus { /* Changes the Chrome browser's focus color to maintain the aesthetic design but still ensures accessibility features */
+    outline-width: 1px !important;
+    outline-color: #101010 !important; 
 } 
 
 .hidden-keys {
