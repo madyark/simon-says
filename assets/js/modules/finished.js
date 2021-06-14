@@ -1,8 +1,7 @@
 import {removeHighlightDisplayCircle, removeHighlightUserCircles} from "./circles.js";
-import userButtonStatus from "./user-buttons-status.js";
-
-let gameInitializer = document.getElementById("init-game");
-let userButtons = document.getElementsByClassName("user-btn");
+import userButtonStatus from "./user-btn-status.js";
+import {userButtons} from "./user-btn-select.js";
+import {gameInitializer} from "./start.js";
 
 let finished = () => {
     removeHighlightDisplayCircle(); // Removing highlighted displayed circles
