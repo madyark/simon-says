@@ -4,6 +4,7 @@ import selectRandomNumber from "./modules/random.js"; // Choose a random number 
 import checkArrayEquality from "./modules/arrays.js"; // Ensure two arrays hold the same values in the same order 
 import userButtonStatus from "./modules/user-buttons.js"; // Change the disabled status of user buttons
 import {highlightDisplay, removeHighlight} from "./modules/display-buttons.js"; // Add and remove highlights from display buttons
+import lostGame from "./modules/lost.js"; // Execute after a failed attempt from the user
 
 // Declaring required variables
 let shownButtons = [];
@@ -96,11 +97,6 @@ let processUserSelections = () => {
     } else {
         lostGame(); // If the two arrays are not equal, execute the lostGame() function
     }
-}
-
-// Failed attempt
-let lostGame = () => {
-    alert("You've lost");
 }
 
 // User buttons event listeners
