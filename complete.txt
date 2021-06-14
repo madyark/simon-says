@@ -1,0 +1,22 @@
+- Divide javascript code from main into modules + refactoring !!!
+
+- Add sounds for display and user buttons
+
+- Add lostGame and wonGame functions
+
+- Add hoverable text over the two containers to guide the user
+    (e.g. hovering over the display container will tell the user that it's the diplay container)
+
+- Add a settings button (inside of game buttons)
+
+- Create soundOff, keyboardDisplay, and different levels functions
+
+- If keyboard display is on, change the outline color of .user-btn:focus to create accessibility
+
+- Add a modal for when the user first enters the page, explaining the game
+
+- Add localStorage memorability
+
+- Add jasmine testing
+
+- Create a readMe.md file
