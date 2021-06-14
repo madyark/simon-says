@@ -1,8 +1,9 @@
-// Declaring imports
-import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./modules/circles.js";
-import selectRandomNumber from "./modules/random.js";
-import checkArrayEquality from "./modules/arrays.js";
-import userButtonStatus from "./modules/user-buttons.js";
+// Declaring module imports
+import {highlightDisplayCircle, removeHighlightDisplayCircle, highlightUserCircles, removeHighlightUserCircles} from "./modules/circles.js"; // Add and remove highlights from display and user circles
+import selectRandomNumber from "./modules/random.js"; // Choose a random number between two values
+import checkArrayEquality from "./modules/arrays.js"; // Ensure two arrays hold the same values in the same order 
+import userButtonStatus from "./modules/user-buttons.js"; // Change the disabled status of user buttons
+import {highlightDisplay, removeHighlight} from "./modules/display-buttons.js"; // Add and remove highlights from display buttons
 
 // Declaring required variables
 let shownButtons = [];
@@ -13,16 +14,6 @@ let resetStatus = false;
 let userButtons = document.getElementsByClassName("user-btn");
 let gameInitializer = document.getElementById("init-game");
 let resetBtn = document.getElementById("reset-game");
-
-// Highlight display button
-let highlightDisplay = specificButton => {
-    specificButton.innerHTML = `<button class="display-btn display-btn-highlight" disabled></button>`;
-}
-
-// Remove highlight on the button 
-let removeHighlight = specificButton => {
-    specificButton.innerHTML = `<button class="display-btn" disabled></button>`
-}
 
 // Add and remove the highlight on the specific button
 let displayChange = (buttonsArray, i) => {
