@@ -1,6 +1,6 @@
 import {resetStatus} from "./reset.js";
 import {userButtons} from "./user-btn-select.js";
-import userButtonStatus from "./user-btn-status.js";
+import userButtonStatus from "./user-btn-status.js"; // Change the disabled status of user buttons
 
 // Highlight display button
 let highlightDisplay = specificButton => {
